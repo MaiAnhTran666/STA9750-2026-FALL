@@ -1,0 +1,44 @@
+---
+title: "Mai Anh Tran"
+---
+
+## Hi there! 
+
+I'm **Mai Anh**, a graduate student at **Baruch College**, currently pursuing MS in Business Analytics. I'm working toward a career in **marketing and luxury fashion**, with a growing interest in data-driven decision making, business analytics, and storytelling through data.
+
+This site hosts my coursework and mini-projects for STA 9750, where I'll be building out data analysis skills using R, GitHub, and Quarto over the course of the semester.
+
+Outside of the classroom, I'm passionate about branding, content creation, and independent entrepreneurship.
+
+Feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/maianhtran008/) 
+
+---
+
+```{r}
+#| include: false
+1+1
+```
+--------------
+Last Updated: `r format(Sys.time(), "%A %m %d, %Y at %H:%M%p")`
+## Where I study
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+if(!require("leaflet")){
+    options(repos=c(CRAN="https://cloud.r-project.org"))
+    install.packages("leaflet")
+    stopifnot(require("leaflet"))
+}
+
+baruch_longitude <- -73.98333
+baruch_latitude  <- +40.74028
+
+leaflet() |>
+  addTiles() |>
+  setView(baruch_longitude, baruch_latitude, zoom=17) |>
+  addPopups(baruch_longitude, baruch_latitude, 
+            "I am a Master's student at <b>Baruch College</b>!")
+```
